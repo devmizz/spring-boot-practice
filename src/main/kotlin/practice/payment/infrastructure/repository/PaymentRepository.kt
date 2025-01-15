@@ -1,6 +1,8 @@
-package practice.payment
+package practice.payment.infrastructure.repository
 
 import org.springframework.stereotype.Repository
+import practice.payment.domain.PaymentSolutionType
+import practice.payment.domain.RegularPaymentTarget
 import java.time.LocalDate
 
 @Repository

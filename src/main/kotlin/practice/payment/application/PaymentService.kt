@@ -1,18 +1,18 @@
-package practice.payment.service
+package practice.payment.application
 
 import org.springframework.stereotype.Service
-import practice.payment.PaymentRepository
-import practice.payment.PaymentSolutionType
-import practice.payment.PaymentSolutionType.KARINA
-import practice.payment.PaymentSolutionType.WINTER
-import practice.payment.RegularPaymentTarget
-import practice.payment.solution.KarinaPaymentSolutionProcessor
-import practice.payment.solution.PaymentSolutionProcessor
+import practice.payment.infrastructure.repository.PaymentRepository
+import practice.payment.domain.PaymentSolutionType
+import practice.payment.domain.PaymentSolutionType.KARINA
+import practice.payment.domain.PaymentSolutionType.WINTER
+import practice.payment.domain.RegularPaymentTarget
+import practice.payment.infrastructure.solution.KarinaPaymentSolutionProvider
+import practice.payment.infrastructure.solution.PaymentSolutionProvider
 
 @Service
 class PaymentService(
-    private val withdrawalSolutionProcessor: List<PaymentSolutionProcessor>,
-    private val transferSolutionProcessor: KarinaPaymentSolutionProcessor,
+    private val withdrawalSolutionProcessor: List<PaymentSolutionProvider>,
+    private val transferSolutionProcessor: KarinaPaymentSolutionProvider,
     private val paymentRepository: PaymentRepository,
 ) {
 

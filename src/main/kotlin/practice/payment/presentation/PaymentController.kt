@@ -1,11 +1,11 @@
-package practice.payment
+package practice.payment.presentation
 
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
-import practice.payment.PaymentSolutionType.KARINA
-import practice.payment.PaymentSolutionType.WINTER
-import practice.payment.service.PaymentService
-import practice.payment.service.RegularPaymentService
+import practice.payment.domain.PaymentSolutionType.KARINA
+import practice.payment.domain.PaymentSolutionType.WINTER
+import practice.payment.application.PaymentService
+import practice.payment.application.RegularPaymentService
 
 @RestController
 class PaymentController(
@@ -13,7 +13,7 @@ class PaymentController(
     private val regularPaymentServices: List<RegularPaymentService>,
 ) {
 
-    @PostMapping("/v1/recurring-payment")
+    @PostMapping("/v1/recurring-payment/karina")
     fun payRegularly() {
         regularPaymentServices.single { it.solutionType == KARINA }.pay()
     }

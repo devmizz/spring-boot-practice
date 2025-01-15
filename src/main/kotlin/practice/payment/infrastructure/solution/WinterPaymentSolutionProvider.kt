@@ -1,25 +1,23 @@
-package practice.payment.solution
+package practice.payment.infrastructure.solution
 
 import org.springframework.stereotype.Component
-import practice.payment.PaymentSolutionType
-import practice.payment.RegularPaymentTarget
-import practice.payment.TransferResult
-import practice.payment.WithdrawalResult
+import practice.payment.domain.PaymentSolutionType
+import practice.payment.domain.RegularPaymentTarget
+import practice.payment.domain.TransferResult
+import practice.payment.domain.WithdrawalResult
 
 @Component
-class WinterPaymentSolutionProcessor(
+class WinterPaymentSolutionProvider(
     override val solutionType: PaymentSolutionType = PaymentSolutionType.WINTER
-) : PaymentSolutionProcessor {
+) : PaymentSolutionProvider {
 
     override fun withdraw(targets: List<RegularPaymentTarget>): WithdrawalResult {
         // 윈터 출금 호출
-        println("윈터 출금을 호출하셨습니다!")
         return WithdrawalResult(targets)
     }
 
     override fun transfer(targets: List<RegularPaymentTarget>): TransferResult {
         // 윈터 송금 호출
-        println("윈터 송금을 호출하셨습니다!")
         return TransferResult(targets)
     }
 }
