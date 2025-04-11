@@ -1,0 +1,21 @@
+services:
+    mysql:
+        container_name: practice-mysql
+        image: mysql:8.0
+        ports:
+            - '3308:3308'
+        environment:
+            MYSQL_DATABASE: practice
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: password
+        restart: always
+        command:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+            - --skip-character-set-client-handshake
+
+    redis:
+        image: redis:alpine
+        ports:
+            - "6380:6380"

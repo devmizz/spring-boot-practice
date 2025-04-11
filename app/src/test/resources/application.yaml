@@ -1,0 +1,11 @@
+spring:
+    docker:
+        compose:
+            enabled: true
+            service: spring-practice
+            lifecycle-management: start_only
+            stop:
+                command: down
+            skip:
+                in-tests: false
+            file: docker/docker-compose.yaml

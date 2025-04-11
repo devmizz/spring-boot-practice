@@ -1,0 +1,17 @@
+spring:
+    docker:
+        compose:
+            enabled: true
+            service: spring-practice
+            lifecycle-management: start_only
+            stop:
+                command: down
+            skip:
+                in-tests: false
+            file: app/docker/docker-compose.yaml
+
+#    sql:
+#        init:
+#            schema-locations: classpath:schema.sql
+#            data-locations:
+#            mode: always
